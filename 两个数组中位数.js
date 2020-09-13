@@ -5,7 +5,7 @@
  * @return {number}
  */
 const findMedianSortedArrays = function(nums1, nums2) {
-  // make sure to do binary search for shorten array
+  // 对短的数组进行二分搜索
   if (nums1.length > nums2.length) {
     [nums1, nums2] = [nums2, nums1]
   }
