@@ -21,7 +21,7 @@
     let dp=new Array(w+1).fill(0)
     dp[0]=1
     for(let num of nums){
-        for(let i=w;i>num;i--){
+        for(let i=w;i>=num;i--){
             dp[i]+=dp[i-sum]
         }
     }
