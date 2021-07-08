@@ -155,7 +155,7 @@ const isPalindrome = x=>{
 // reduce实现forEach
 
 // 设计一个简单的任务队列，要求分别在 1,3,4 秒后打印出 "1", "2", "3"
-new Queue()
+// new Queue()
 
 // 数组转树&&树转数组
 
@@ -193,3 +193,67 @@ const throttle=(func,wait)=>{
 //     border:50px solid transparent;
 //     border-top-color: black;
 // }
+
+// new函数
+function _new(){
+    const func = [].shift.call(arguments)
+    const obj = Object.create(func)
+    const ret = func.apply(func,arguments)
+    return typeof ret ==='object'?ret:obj
+}
+
+// 最优化继承
+function parent(name){
+    this.name=name
+}
+function child(name,age){
+    parent.call(this,name)
+    this.age=age
+}
+child.prototype.constructor=child
+child.prototype=Object.create(parent.prototype)
+
+
+// 快排
+function quickSort(arr){
+    if(arr.length<=1){
+        return arr
+    }
+    const left=[],right=[],cur=arr.splice(Math.floor(arr.length/ 2),1) 
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]<cur){
+            left.push(arr[i])
+        }else{
+            right.push(arr[i])
+        }
+    }
+    return quickSort(left).concat(cur, quickSort(right))
+    // return [...quickSort(left),cur,...quickSort(right)]
+}
+
+console.log(quickSort([7,3,6,8,8,1]))
+
+// 懒加载
+// 一个是图片到各个边距的距离，二个就是判断图片是否在可视区域内。
+// 图片全部加载完成后移除事件监听；加载完的图片，从 imgList 移除；
+let imgList=[...document.querySelectorAll('img')]
+let length = imgList.length
+const imgLazyLoad=function(){
+    let count=0
+    return (function () {
+        let deleteIndexList=[]
+        imgList.forEach((img,index)=>{
+            let rect=img.getBoundingClientRect()
+            if(rect.top<window.innerHeight){
+                img.src=img.dataset.src
+                deleteIndexList.push(index)
+                count++
+                if(count==length){
+                    document.removeEventListener('scroll',imgLazyLoad())
+                }
+            }
+        })
+        imgList=imgList.filter((img,index)=>!deleteIndexList.includes(index))
+    })()
+}
+document.addEventListener('scroll',imgLazyLoad)
