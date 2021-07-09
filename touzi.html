@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五个点的骰子</title>
+    <style>
+        .box3{
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box3 .item{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #666;
+        }
+        .box3 .item:nth-child(2){
+            align-self:center;
+        }
+        .box3 .item:nth-child(3){
+            align-self: flex-end;
+        }
+        .box5{
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .box5 .item{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #666;
+        }
+        .box5 .top{
+            display: flex;
+            justify-content: space-between;
+        }
+        .box5 .center{
+            display: flex;
+            justify-content: center;
+        }
+        .box5 .buttom{
+            display:flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="box3">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+    </div>
+    <div class="box5">
+        <div class="top">
+        <span class="item"></span>
+        <span class="item"></span>
+        </div>
+        <div class="center">
+            <span class="item"></span>
+        </div>
+        <div class="buttom">
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+</body>
+</html>
