@@ -194,6 +194,10 @@ const throttle=(func,wait)=>{
 //     border-top-color: black;
 // }
 
+// 0.5px线
+// transform:scale(0.5,0.5)
+// 或者 meta-viewreport
+
 // new函数
 function _new(){
     const func = [].shift.call(arguments)
@@ -257,3 +261,15 @@ const imgLazyLoad=function(){
     })()
 }
 document.addEventListener('scroll',imgLazyLoad)
+
+// // 单行文本溢出隐藏
+// overflow: hidden;   溢出隐藏
+// text-overflow: ellipsis;   溢出省略号显示 
+// white-space: nowrap;    规定段落中文本不换行
+
+// // 多行文本溢出
+// overflow: hidden;   溢出隐藏
+// text-overflow: ellipsis;   溢出省略号显示 
+// display:-webkit-box;    作为弹性伸缩盒子
+// -webkit-box-orient:vertical;    从上到下垂直排列
+// -webkit-line-clamp:3;   显示行数
