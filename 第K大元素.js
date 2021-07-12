@@ -1,3 +1,4 @@
+
 const findKth1 = (nums,k)=>{
     nums.sort((a,b)=>b-a)
     return nums[k-1]
@@ -63,3 +64,26 @@ const findKth2 = (nums,k)=>{
     return nums[arr.length - k]
 }
 
+
+function findtheKthLargest(nums, k) {
+    const arr = quickSort(nums);
+    return arr[arr.length - k];
+}
+
+function quickSort(nums) {
+    if(nums.length < 2) {
+        return nums;
+    }
+    let left = [];
+    let right = [];
+    let pivot = Math.floor(nums.length / 2);
+    let p = nums.splice(pivot, 1)[0];
+    for(let i = 0;i < nums.length;i++) {
+        if(nums[i] < p) {
+            left.push(nums[i]);
+        }else{
+            right.push(nums[i]);
+        }
+    }
+    return [...quickSort(left), p, ...quickSort(right)];
+}
