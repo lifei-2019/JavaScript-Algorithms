@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "esnext",
+        // 对this上的数据属性进行更严格得推断
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@/*":["src/*"]
+        },
+        "typeRoots": ["src/globalDeclare"]
+    },
+    "include": ["src/**/*.ts","src/**/*.d.ts","src/**/*.d.vue"]
+}
